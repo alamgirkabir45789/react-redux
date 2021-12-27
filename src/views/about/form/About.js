@@ -1,23 +1,21 @@
-import React, { useState } from 'react';
-import { Button, Input, Label, Offcanvas, OffcanvasBody, OffcanvasHeader } from 'reactstrap';
+import React, { useState } from "react";
+import Settings from "../../settings/form/Settings";
 
-const About = ( {
-    children,
-    title,
+const About = ({ children, title }) => {
+  const [canvasOpen, setCanvasOpen] = useState(false);
 
-} ) => {
-    const [canvasOpen, setCanvasOpen] = useState( false );
+  const handleCanvasOpen = () => {
+    setCanvasOpen(!canvasOpen);
+  };
+  const handleCanvasClose = () => {
+    setCanvasOpen(!canvasOpen);
+  };
 
-    const handleCanvasOpen = () => {
-        setCanvasOpen( !canvasOpen )
-    }
-    const handleCanvasClose = () => {
-        setCanvasOpen( !canvasOpen )
-    }
-
-    return (
-        <div>
-            <div>
+  return (
+    <div>
+      {/* <Scroll3 /> */}
+      <Settings />
+      {/* <div>
                 <Button
                     color="primary"
                     onClick={handleCanvasOpen}
@@ -54,9 +52,9 @@ const About = ( {
                         </strong>
                     </OffcanvasBody>
                 </Offcanvas>
-            </div>
-        </div>
-    )
-}
+            </div> */}
+    </div>
+  );
+};
 
-export default About
+export default About;

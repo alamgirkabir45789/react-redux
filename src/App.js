@@ -1,19 +1,17 @@
-import React, { createContext, useState } from 'react';
-import Router from '../src/router/Router';
-import PageLinks from './views/PageLinks';
+import React, { createContext, useState } from "react";
+import Router from "../src/router/Router";
 
 export const UserContext = createContext();
 
 const App = () => {
-  const [user, setUser] = useState( { loggedIn: false } );
+  const [user, setUser] = useState({ loggedIn: false });
   return (
     <UserContext.Provider value={{ user, setUser }}>
       {/* <LogInButtons /> */}
-      <PageLinks />
+      {/* <PageLinks /> */}
       <Router />
-
     </UserContext.Provider>
-  )
-}
+  );
+};
 
-export default App
+export default App;

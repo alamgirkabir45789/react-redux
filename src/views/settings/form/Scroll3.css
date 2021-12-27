@@ -1,0 +1,28 @@
+.main-div .vertical-menu a {
+  background-color: white;
+  color: black;
+  display: block;
+  padding: 12px;
+  font-size: 16px;
+  text-decoration: none;
+}
+.main-div .vertical-menu a icon {
+  background-color: blue;
+}
+.main-div .vertical-menu a:hover {
+  background-color: #ccc;
+}
+.main-div .vertical-menu a.active {
+  /* background-color: white;
+    */
+  background-color: #04aa6d;
+  color: white;
+}
+.main-div .section-div-scroll {
+  height: 820px;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+}
+.main-div .section-div-scroll .nested-div {
+  min-height: 900px;
+}
