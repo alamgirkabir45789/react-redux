@@ -16,9 +16,9 @@
       "id": 5
     },
     {
-      "name": "rerer",
-      "age": "2",
-      "id": 6
+      "id": 7,
+      "name": "Rashed vai",
+      "age": "34"
     }
   ],
   "customer": [
@@ -26,19 +26,19 @@
       "id": 1,
       "name": "Ali Hossain",
       "phone": "355454",
-      "email":"ali@gmail.com"
+      "email": "ali@gmail.com"
     },
     {
       "id": 2,
       "name": "Foysal",
       "phone": "355454",
-      "email":"ali@gmail.com"
+      "email": "ali@gmail.com"
     },
     {
       "id": 3,
       "name": "Faridgfdgdfgf",
       "phone": "355454",
-      "email":"ali@gmail.com"
+      "email": "ali@gmail.com"
     }
   ]
 }
