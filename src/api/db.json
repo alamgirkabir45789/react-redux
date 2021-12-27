@@ -1,0 +1,44 @@
+{
+  "contacts": [
+    {
+      "id": 3,
+      "name": "Foysal",
+      "age": "55"
+    },
+    {
+      "id": 4,
+      "name": "Alimur Rahman",
+      "age": "43"
+    },
+    {
+      "name": "sdfdsf",
+      "age": "33",
+      "id": 5
+    },
+    {
+      "name": "rerer",
+      "age": "2",
+      "id": 6
+    }
+  ],
+  "customer": [
+    {
+      "id": 1,
+      "name": "Ali Hossain",
+      "phone": "355454",
+      "email":"ali@gmail.com"
+    },
+    {
+      "id": 2,
+      "name": "Foysal",
+      "phone": "355454",
+      "email":"ali@gmail.com"
+    },
+    {
+      "id": 3,
+      "name": "Faridgfdgdfgf",
+      "phone": "355454",
+      "email":"ali@gmail.com"
+    }
+  ]
+}
