@@ -10,6 +10,7 @@ import Error from "../views/error/form/Error";
 import Home from "../views/home/form/Home";
 import Final from "../views/modal-final/Final";
 import Product from "../views/product/list/index";
+import Test5 from "../views/test/Test5";
 const Router = () => {
   let routes: RouteObject[] = [
     {
@@ -33,6 +34,10 @@ const Router = () => {
         {
           path: "/final",
           element: <Final />,
+        },
+        {
+          path: "/test5",
+          element: <Test5 />,
         },
         {
           path: "/customer",
