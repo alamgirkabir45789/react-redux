@@ -24,9 +24,9 @@ const ContactList = () => {
                     <ContactForm />
                 </div>
                 <Card className="mt-3">
-                    <Table >
+                    <Table hover striped className='text-center' bordered>
                         <thead>
-                            <tr>
+                            <tr >
                                 <th>Name</th>
                                 <th>Age</th>
                                 <th>Action</th>
@@ -35,7 +35,7 @@ const ContactList = () => {
                         <tbody>
                             {
                                 contacts?.map( ( i, index ) => (
-                                    <tr key={index}>
+                                    <tr key={index} >
                                         <td>{i.name}</td>
                                         <td>{i.age}</td>
                                         <td >

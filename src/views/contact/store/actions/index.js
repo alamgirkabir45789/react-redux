@@ -1,11 +1,12 @@
-import axios from "axios"
+import { baseAxios } from "../../../../services/api-end-points"
+import { accountApi } from "../../../../services/api-end-points/accounts"
 import { basicContactInfo } from "../../model"
 import { ADD_CONTACT, DELETE_CONTACT, GET_ALL_CONTACTS, GET_CONTACT_BY_ID, UPDATE_CONTACT } from '../action-types'
 
 export const getAllContacts = () => {
     return dispatch => {
-        axios.get( 'http://localhost:5005/contacts' ).then( response => {
-            console.log( response.data )
+        baseAxios.get( `${accountApi.contact.root}` ).then( response => {
+            console.log( 'response', response.data )
             dispatch( {
                 type: GET_ALL_CONTACTS,
                 contacts: response.data
@@ -15,9 +16,8 @@ export const getAllContacts = () => {
 }
 
 export const getContactById = ( id ) => {
-
     return dispatch => {
-        axios.get( `${'http://localhost:5005/contacts'}/${id}` ).then( response => {
+        baseAxios.get( `${accountApi.contact.root}/${id}` ).then( response => {
             console.log( response.data )
             dispatch( {
                 type: GET_CONTACT_BY_ID,
@@ -48,7 +48,7 @@ export const bindContactBasicInfo = ( selectedData ) => {
 
 export const addContact = ( contact ) => {
     return dispatch => {
-        axios.post( 'http://localhost:5005/contacts', contact ).then( response => {
+        baseAxios.post( accountApi.contact.root, contact ).then( response => {
             dispatch( {
                 type: ADD_CONTACT,
                 contact
@@ -63,7 +63,7 @@ export const updateContact = ( id, contact ) => {
     console.log( "update" )
     console.log( JSON.stringify( contact, null, 2 ) )
     return dispatch => {
-        axios.put( `${'http://localhost:5005/contacts'}/${id}`, contact ).then( response => {
+        baseAxios.put( `${accountApi.contact.root}/${id}`, contact ).then( response => {
             console.log( response.data )
             dispatch( {
                 type: UPDATE_CONTACT,
@@ -77,7 +77,7 @@ export const updateContact = ( id, contact ) => {
 export const deleteContact = ( id ) => {
 
     return dispatch => {
-        axios.delete( `${'http://localhost:5005/contacts'}/${id}` ).then( response => {
+        baseAxios.delete( `${accountApi.contact.root}/${id}` ).then( response => {
             dispatch( {
                 type: DELETE_CONTACT
 

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        li:nth-last-child(2n){
+            background-color: green;
+        }
+      
+        li:not(.test){
+            color: yellow;
+        }
+        /* p:last-of-type{
+            color: tomato;
+        }
+        p:nth-of-type(2n+1){
+            background-color: red;
+        } */
+        input:focus{
+            background-color: khaki;
+        }
+        input[type="number"]{
+            background-color: lavender;
+        }
+        input[type="number"]:in-range{
+            background-color: green;
+        }
+        input[type="number"]:out-of-range{
+            background-color: violet;
+            border: 5px solid blue;
+        }
+      h2:only-child{
+          background-color: darkblue;
+          color: yellow;
+      }
+      input[type="text"]:required{
+          background-color: navy;
+      }
+      input[type="text"]:optional{
+          background-color:lightcoral;
+      }
+      input[type="text"]:read-only{
+          background-color: brown;
+      }
+      :target{
+          background-color: brown;
+          color: blue;
+      }
+      input[type="email"]{
+          background-color: thistle;
+      }
+      input[type="email"]:valid{
+          background-color: yellow;
+      }
+    </style>
+</head>
+<body>
+    <input type="email" placeholder="Email">
+    <div>
+        <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        <div>
+            <section>
+                <p id="home">Home</p>
+                <p id="about">About</p>
+                <p id="contact">Contact</p>
+            </section>
+        </div>
+      
+    </div>
+    <input type="text" readonly>
+    <input type="text" required placeholder="This is required">
+    <div>
+        <h2 id="only">Hello world</h2>
+
+    </div>
+    <input type="number"  min="5" max="10">
+    <input type="text">
+  <div>
+      <p>Hello</p>
+      <p>Hello2</p>
+      <p>Hello3</p>
+  </div>
+    <ul>
+        <li>Apple</li>
+        <li class="test">Apple2</li>
+        <li>Apple3</li>
+        <li>Apple4</li>
+        <li>Apple4</li>
+    </ul>
+</body>
+</html>

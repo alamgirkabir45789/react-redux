@@ -1,0 +1,96 @@
+.flexible-modal {
+  position: absolute;
+  z-index: 1;
+  border: 1px solid #ccc;
+  background: white;
+}
+.flexible-modal-mask {
+  position: static;
+  height: 100%;
+  background: rgba(55, 55, 55, 0.6);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.flexible-modal-resizer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  cursor: se-resize;
+  margin: -1px;
+  border-bottom: solid 2px #a3d220;
+  border-right: solid 2px #a3d220;
+}
+.flexible-modal-drag-area {
+  background: rgba(22, 22, 255, 0);
+
+  /* background: rgba(22, 22, 333, 0.2); */
+  height: 50px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  cursor: move;
+}
+
+#close:hover {
+  cursor: grab;
+}
+
+/* ============================================== */
+
+#mydiv {
+  position: absolute;
+  z-index: 9;
+  background-color: #f1f1f1;
+  text-align: center;
+  border: 1px solid #d3d3d3;
+}
+#mydiv2 {
+  position: absolute;
+  z-index: 9;
+  background-color: #f1f1f1;
+  text-align: center;
+  border: 1px solid #d3d3d3;
+}
+
+#mydivheader {
+  padding: 10px;
+  cursor: move;
+  z-index: 10;
+  background-color: #2196f3;
+  color: #fff;
+}
+#mydivheader2 {
+  padding: 10px;
+  cursor: move;
+  z-index: 10;
+  /* background-color: #2196f3; */
+  color: #fff;
+}
+
+
+
+
+/* <button   onClick={() => setOpenNestedModal(!openNestedModal)}>
+  Open modal2
+ 
+</button>
+<ReactModal 
+  initWidth={800} 
+  initHeight={400} 
+  // onFocus={() => console.log("Modal is clicked")}
+  // className={"my-modal-custom-class"}
+  // onRequestClose={this.closeModal} 
+  // isOpen={this.state.modalIsOpen}
+  isOpen={openNestedModal}
+  >
+  <h3>My Modal</h3>
+  <div className="body">
+      <p>This is the modal&apos;s body.</p>
+  </div>
+  <button >
+      Close modal
+  </button>
+</ReactModal> */

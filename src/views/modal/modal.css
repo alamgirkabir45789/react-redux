@@ -1,0 +1,26 @@
+.responsive-modal {
+  position: "absolute";
+  top: "-55%";
+  left: "-68%";
+}
+.responsive-main-modal {
+  position: static;
+}
+/*===========================
+        11.RESPONSIVE
+=============================*/
+
+@media (min-width: 200px) and (max-width: 768px) {
+  .responsive-modal {
+    position: "absolute";
+    top: "-5%";
+    left: "-8%";
+  }
+}
+@media (min-width: 200px) and (max-width: 768px) {
+  .responsive-main-modal {
+   position: "static";
+   
+    
+  }
+}

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        a:hover{
+            color: green;
+        }
+        input{
+            padding: auto;
+            font-size: 1rem;
+            width: 1fr;
+        }
+        input:hover{
+            background: greenyellow;
+        }
+        input:focus{
+            background: red;
+        }
+        table,tr,th,td{
+            border: 1px solid green;
+            margin-top: 30px;
+        }
+        tr:nth-last-child(odd){
+            background-color: purple;
+        }
+        p:hover{
+            color: brown;
+            position: relative;
+        }
+        p::first-letter{
+            font-size: 5rem;
+            color: coral;
+
+        }
+        p::before{
+           box-sizing: border-box;
+           background: cadetblue;
+        }
+        p::after{
+            box-sizing: border-box;
+           background: cadetblue;
+            content: "TM";
+            position: absolute;
+            top: 0;
+
+           
+        }
+        h2:hover:after{
+            content: attr(myData);
+            position: absolute;
+            color: cadetblue;
+            top: 0;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <h2 myData="Hi">Hello World</h2>
+    </div>
+<div>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates magnam laboriosam labore molestias et ex amet eius explicabo tempore, saepe, placeat ut iste? Quasi illum ipsam eum dolores aut dolor.</p>
+</div>
+    <div>
+        <input type="text" placeholder="Enter your Name">
+        <a href="">Home</a>
+    </div>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <td>
+                   Name
+                    </td>
+                    <td>
+                   Ages
+                    </td>
+                </tr>               
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Alamgir</td>
+                    <td>55</td>
+                </tr>
+                <tr>
+                    <td>kabir</td>
+                    <td>77</td>
+                </tr>
+                <tr>
+                    <td>Nabil</td>
+                    <td>7</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

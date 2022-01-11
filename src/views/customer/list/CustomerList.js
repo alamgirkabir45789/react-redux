@@ -2,12 +2,14 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Button, Card, CardBody, CardHeader, Table } from 'reactstrap';
 import CustomerAddForm from '../form/CustomerAddForm';
-import { getAllCustomer } from '../store/actions';
+import { deleteCustomer, getAllCustomer, getCustomerById } from '../store/actions';
 
 const CustomerList = () => {
     const dispatch = useDispatch();
     const { customers } = useSelector( ( { customers } ) => customers )
     console.log( customers )
+
+   
 
     useEffect( () => {
         dispatch(
@@ -41,10 +43,12 @@ const CustomerList = () => {
                                         <td>{i.name}</td>
                                         <td>{i.phone}</td>
                                         <td>{i.email}</td>
+                                        <td>{i.address}</td>
+                                        <td>{i.message}</td>
 
                                         <td >
-                                            <Button style={{ marginRight: '10px', backgroundColor: 'green' }}>Edit</Button>
-                                            <Button className="bg-warning" >Delete</Button>
+                                            <Button style={{ marginRight: '10px', backgroundColor: 'green' }}onClick={()=>dispatch(getCustomerById(i.id))}>Edit</Button>
+                                            <Button className="bg-warning" onClick={()=>dispatch(deleteCustomer(i.id))}>Delete</Button>
                                         </td>
                                     </tr>
                                 ) )

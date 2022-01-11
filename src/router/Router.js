@@ -8,6 +8,7 @@ import Contact from "../views/contact/list/index";
 import Customer from "../views/customer/list/index";
 import Error from "../views/error/form/Error";
 import Home from "../views/home/form/Home";
+import Final from "../views/modal-final/Final";
 import Product from "../views/product/list/index";
 const Router = () => {
   let routes: RouteObject[] = [
@@ -28,6 +29,10 @@ const Router = () => {
         {
           path: "/product",
           element: <Product />,
+        },
+        {
+          path: "/final",
+          element: <Final />,
         },
         {
           path: "/customer",

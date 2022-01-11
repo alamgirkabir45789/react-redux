@@ -1,0 +1,10 @@
+body{
+    background-image: url("../../../assets/images/BonanzaSchoolStudents-web.jpg");
+   
+    background-repeat:no-repeat;
+    background-position: right top;
+    background-attachment: fixed;
+    image-rendering: crisp-edges;
+    border-image: 5rem;
+  
+}

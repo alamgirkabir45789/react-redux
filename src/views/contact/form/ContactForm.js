@@ -21,7 +21,7 @@ const ContactForm = () => {
                     age: selectedContact.age
                 } )
             )
-
+            alert( 'Data Updated Successfully!' )
         } else {
 
             dispatch(
@@ -31,6 +31,8 @@ const ContactForm = () => {
                     age: selectedContact.age
                 } )
             )
+            alert( 'Data Inserted Successfully!' )
+
         }
         dispatch( bindContactBasicInfo( null ) )
 
@@ -41,6 +43,7 @@ const ContactForm = () => {
         const { name, value } = e.target;
         const prevState = { ...selectedContact };
         prevState[name] = value;
+        console.log(prevState)
         dispatch( bindContactBasicInfo( prevState ) )
     }
 

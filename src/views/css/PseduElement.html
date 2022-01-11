@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .demo:hover{
+            color: brown;
+        }
+        .demo p:first-child{
+            background-color: blue;
+            color: yellow;
+        }
+        .demo p:last-child{
+            background-color: red;
+            color: yellow;
+        }
+        .demo p:nth-child(even){
+            background-color: teal;
+            color: coral;
+        }
+        .demo p::selection{
+            font-size: 5rem;
+            background: darkblue;
+            color: lavender;
+            font-weight: bolder;
+        }
+        .demo::before{
+            content: "";
+            background-color: black;
+            height: 30px;
+            display: inline-block;
+            width: 100%;
+        }
+        .demo::after{
+            content: "";
+            background-color: black;
+            height: 30px;
+            display: inline-block;
+            width: 100%;
+        }
+        p:empty{
+            background-color: blue;
+            height: 20px;
+            width: 20px;
+        }
+        input[type='text']:enabled{
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <input type="text">
+        <p></p>
+        <h2>This is Pseudo Element</h2>
+        <div class="demo">
+            <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur beatae distinctio atque, illo at amet cupiditate! Eligendi laborum distinctio aliquam!
+            </p>
+          <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae rerum voluptatum doloribus atque hic. Non illum deserunt praesentium, minus optio officiis, repellendus facilis atque numquam, inventore quia sed provident neque?
+          </p>
+          <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae rerum voluptatum doloribus atque hic. Non illum deserunt praesentium, minus optio officiis, repellendus facilis atque numquam, inventore quia sed provident neque?
+          </p>
+          <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae rerum voluptatum doloribus atque hic. Non illum deserunt praesentium, minus optio officiis, repellendus facilis atque numquam, inventore quia sed provident neque?
+          </p>
+
+        </div>
+    </div>
+</body>
+</html>
