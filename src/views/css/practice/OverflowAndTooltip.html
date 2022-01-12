@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* css variables */
+        :root{
+            --primary-color:red;
+            --secondary-color:blue;
+        }
+        .overflow{
+            height: 200px;
+            width: 200px;
+            background-color: red;
+            border: 1px solid green;
+           overflow: auto;
+            margin: 0 auto;
+        }
+        .tooltip{
+            position: relative;
+        }
+        .tooltip .tooltipText{
+            visibility: hidden;
+            width: 100px;
+            background-color: green;
+            color: white;
+            position: absolute;
+            padding: 10px;
+            left: 30px;
+            top:30px;
+            border-radius: 5px;
+            z-index: 1;
+            
+        }
+        .tooltip:hover .tooltipText{
+            visibility: visible;
+        }
+      
+        .div1{
+            background-color: var(--secondary-colo,black);
+            /* background-color: var(--secondary-color); */
+            height: 200px;
+            width: 200px;
+            position: absolute;
+          z-index: 1;
+        }
+        .div2{
+            background-color: var(--primary-color);
+            height: 200px;
+            width: 200px;
+            position: absolute;
+            left: 50px;
+            top: 50px;
+            z-index: -2;
+        }
+
+        /* media query */
+        @media screen and (max-width:600px){
+            :root{
+            --primary-color:orange;
+            --secondary-color:pink;
+        }
+        }
+    </style>
+</head>
+<body>
+    <div class="div1"></div>
+    <div class="div2"></div>
+    <div>
+        <a href="" class="tooltip">
+            Facebook
+<span class="tooltipText">Social Media</span>
+
+        </a>
+    </div>
+    <div class="overflow">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores iusto animi labore ad necessitatibus nam vel? Voluptatibus natus, quod commodi corrupti maiores sit consequuntur totam earum! Asperiores laborum aliquam delectus?
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem ipsum adipisci fuga, deserunt laborum iste iusto voluptatem totam! Laborum enim doloremque omnis sed ipsum architecto similique corporis excepturi tempore natus.
+        </p>
+    </div>
+</body>
+</html>

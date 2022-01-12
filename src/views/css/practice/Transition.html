@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main{
+            width:200px;
+            height: 200px;
+            background-color: red;
+            margin: 0 auto;
+            /* transition-property: width,height 4s;
+            transition-duration: 3s;
+            transition-delay: 1s;
+            -o-transition-timing-function: ease-in-out; */
+
+            transition: width 2s,transform 3s;
+            margin-top: 100px;
+        }
+        .main:hover{
+            width: 400px;
+           transform: rotate(360deg);
+        }
+
+        h2{
+            font-size: 2rem;
+            color: white;
+            text-align: center;
+            transition: font-size 2s;
+        }
+        h2:hover{
+            font-size: 5rem;
+        }
+
+        table{
+            border:2px solid black;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th,td{
+            border:2px solid black;
+
+        }
+        th{
+            height: 40px;
+            vertical-align:middle;
+        }
+        tr:nth-child(odd){
+            background-color: thistle;
+        }
+        tr:hover{
+            background-color: teal;
+        }
+        div~p{
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Velit illo explicabo nemo laboriosam quae rerum, aut tenetur autem ab ut doloribus corrupti incidunt dicta sequi fugit dolores, eum impedit possimus.</p>
+    </div>
+    <p>Hello</p>
+    <code>Some info</code>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Excepturi at doloribus magni. Eius debitis enim ipsam sequi adipisci eaque repellendus commodi. Deserunt sequi officiis dicta facilis officia architecto, facere exercitationem.</p>
+    <div>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Name</th>
+            </tr>
+            <tr>
+                <th>sdfsdfd</th>
+                <th>34</th>
+                <th>dsfdsf</th>
+            </tr>
+            <tr>
+                <th>sdfsdfd</th>
+                <th>34</th>
+                <th>dsfdsf</th>
+            </tr>
+            <tr>
+                <th>sdfsdfd</th>
+                <th>34</th>
+                <th>dsfdsf</th>
+            </tr>
+        </table>
+    </div>
+    <div class="main">
+        <h2>Bangladesh</h2>
+    </div>
+</body>
+</html>

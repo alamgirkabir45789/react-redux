@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img{
+            max-width: 200px;
+            height: 200px;
+            border: 2px solid black;
+            display: block;
+            margin: 0 auto;
+            margin-top: 100px;
+            border-radius: 50%;
+
+            position: relative;
+            animation-name: img-anim;
+            animation-duration: 5s;
+            animation-fill-mode: forwards;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+        }
+        img:hover{
+            /* animation-name: img-anim;
+            animation-duration: 5s;
+            animation-fill-mode: forwards; */
+        }
+        @keyframes img-anim {
+           0%{
+
+            top: 0;
+            left: 0;
+
+               /* border: 2px solid;
+              border-color: orange;
+              max-width: 200px; */
+           }
+           50%{
+               top: 100px;
+               left: 0;
+               opacity: 0.5;
+
+
+               /* border-color: blue; */
+           }
+           100%{
+
+            top: 0;
+            left: 0;
+               /* border: 5px solid;
+              border-color: red;
+              max-width: 500px; */
+           }
+            
+        }
+    </style>
+</head>
+<body>
+    <img src="../../../assets/images/AlamgirSmallSizePP.jpg" alt="">
+</body>
+</html>

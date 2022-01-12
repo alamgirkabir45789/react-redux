@@ -38,7 +38,7 @@
         }
         p::before{
            box-sizing: border-box;
-           background: cadetblue;
+           background-color: yellow;
         }
         p::after{
             box-sizing: border-box;
@@ -50,7 +50,7 @@
            
         }
         h2:hover:after{
-            content: attr(myData);
+            content: "/";
             position: absolute;
             color: cadetblue;
             top: 0;
@@ -59,7 +59,7 @@
 </head>
 <body>
     <div>
-        <h2 myData="Hi">Hello World</h2>
+        <h2 myData="Hi" name="Test">Hello World</h2>
     </div>
 <div>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates magnam laboriosam labore molestias et ex amet eius explicabo tempore, saepe, placeat ut iste? Quasi illum ipsam eum dolores aut dolor.</p>
