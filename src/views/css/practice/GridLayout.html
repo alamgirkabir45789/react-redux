@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .grid-container{
+            display: grid;
+            grid-template-columns: 50px auto auto auto;
+            /* grid-template-rows: 100px; */
+            background-color: salmon;
+            /* grid-column-gap: 15px; */
+            /* background-color: violet;
+            grid-row-gap: 10px; */
+            grid-gap: 5px 10px;
+            justify-content:space-around;
+        }
+        div{
+            background-color: red;
+            border: 1px solid black;
+            text-align: center;
+            padding: 5px;
+        }
+        .div1{
+            /* grid-column-start: 1;
+            grid-column-end: 3; */
+            /* grid-column: 1/ span 3; */
+           
+
+        }
+    </style>
+</head>
+<body>
+    <div class="grid-container">
+        <div class="div1">Div1</div>
+        <div class="div3">Div2</div>
+        <div class="div1">Div3</div>
+        <div class="div1">Div4</div>
+        <div class="div1">Div5</div>
+        <div class="div1">Div6</div>
+        <div class="div1">Div7</div>
+        <div class="div1">Div8</div>
+        <div class="div1">Div9</div>
+        <div class="div1">Div10</div>
+        <div class="div1">Div11</div>
+        <div class="div1">Div12</div>
+        <div class="div1">Div13</div>
+        <div class="div1">Div14</div>
+        <div class="div1">Div15</div>
+        <div class="div1">Div16</div>
+    </div>
+</body>
+</html>

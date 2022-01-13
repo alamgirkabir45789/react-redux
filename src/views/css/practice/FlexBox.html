@@ -5,32 +5,67 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <style>
-        .flex-container{
-            display: flex;
-            flex-wrap: nowrap;
-            background-color: dodgerblue;
-        }
-        .flex-container > div{
-            background-color: #f1f1f1;
-            margin: 10px;
-            width: 100px;
-            line-height: 75px;
-            text-align: center;
-            font-size: 30px;
-        }
+       .flex-container{
+           background-color: gainsboro;
+           display: flex;
+           /* flex-wrap: wrap-reverse; */
+           /* flex-wrap: wrap; */
+           /* flex-direction: row-reverse; */
+           /* flex-direction: row; */
+           flex-flow:wrap row;
+           /* justify-content: flex-end; */
+           justify-content:center;
+           height: 300px;
+           align-items: stretch;
+           flex-direction: row;
+           
+       }
+       .flex-container>div{
+           width: 100px;
+           background-color: brown;
+           color: blue;
+           font-size: 35px;
+           margin: 10px;
+           padding: 20px;
+       }
+       .flex-item-left {
+  background-color: #f1f1f1;
+  padding: 10px;
+  flex: 50%;
+}
+
+.flex-item-right {
+  background-color: dodgerblue;
+  padding: 10px;
+  flex: 50%;
+}
+       @media (max-width:500px) {
+           .flex-container{
+               flex-direction: column;
+           }
+       }
+       .facebook{
+           margin-top: 20px;
+           height: 10px;
+           width: 10px;
+       }
     </style>
 </head>
 <body>
+    <div class="facebook">
+        <i class="fab fa-facebook" style="background-color: greenyellow;color: indigo;"></i>
+    </div>
     <div class="flex-container">
-        <div>1</div>
-        <div>2</div>
-        <div>3</div>
-        <div>4</div>
-        <div>5</div>
-        <div>6</div>
-        <div>7</div>
-        <div>8</div>
+      <div class="div1 flex-item-left" >Div1</div>
+      <div class="div2 flex-item-right" >Div2</div>
+      <div class="div3" >Div3</div>
+      <div class="div4" style="order:1;">Div4</div>
+      <div class="div5" style="order:5;">Div5</div>
+      <div class="div6" >Div6</div>
+      <div class="div7" style="order:8;">Div7</div>
+      <div class="div8" style="flex-grow: 0;">Div8</div>
 
     </div>
 </body>
