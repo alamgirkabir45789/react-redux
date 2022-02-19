@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Edit, Trash2 } from "react-feather";
 import { Button, Card, Col, Input, Label, Row, Table } from "reactstrap";
@@ -10,11 +11,10 @@ const initialState = {
   product: [{ id: 0, name: "", amount: 0 }],
 };
 
-const ProductAddForm = ( { myState, setMyState, edit, setEdit } ) => {
+const ProductAddForm = ( { myState, setMyState, edit, setEdit ,fetchCustomerInfo} ) => {
   const [state, setState] = useState( initialState );
   const [tableData, setTableData] = useState( [] );
   const [dataEdit, setDataEdit] = useState();
-  console.log( state )
   useEffect( () => {
     setState( { ...state, ...edit } )
 
@@ -30,15 +30,13 @@ const ProductAddForm = ( { myState, setMyState, edit, setEdit } ) => {
       name: p.name,
       amount: p.amount,
     } ) );
-    console.log( updatedProduct );
     setTableData( [...tableData, ...updatedProduct] );
     resetForm();
   };
 
   const handleInputArrayObjectChange = ( e ) => {
-    const { name, type, value } = e.target;
+    const { name,  value } = e.target;
     const { product } = state;
-    console.log( product );
     const updatedProduct = product.map( ( p ) => {
       p[name] = value;
       return p;
@@ -67,7 +65,6 @@ const ProductAddForm = ( { myState, setMyState, edit, setEdit } ) => {
   };
   const handleDeleteData = ( id ) => {
     const remainRowData = state.product.filter( ( i ) => i.id !== id );
-    console.log( remainRowData );
     /// setState( remainRowData );
   };
 
@@ -82,7 +79,7 @@ const ProductAddForm = ( { myState, setMyState, edit, setEdit } ) => {
     // )
   }
 
-  const handleFinalSubmit = ( id ) => {
+  const handleFinalSubmit =async ( id ) => {
     const submitArray = tableData.map( ( i ) => ( {
       id: i.id,
       name: i.name,
@@ -107,9 +104,11 @@ const ProductAddForm = ( { myState, setMyState, edit, setEdit } ) => {
         email: state.email,
         product: submitArray,
       };
-      console.log( submitData );
+      console.log( JSON.stringify(submitData,null,2) );
 
-      setMyState( [...myState, submitData] );
+await axios.post('http://localhost:5005/customerInfo',submitData);
+alert("Inserted!!!")
+fetchCustomerInfo();
     }
 
     //setMyState( [...myState, ...submitArray] )

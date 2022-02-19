@@ -1,36 +1,34 @@
-import React, { useState } from "react";
+import axios from "axios";
+import React, { useEffect, useState } from "react";
 import { Button, Card, CardBody, CardHeader, Table } from "reactstrap";
 import ProductAddForm from "../form/ProductAddForm";
-const data = [
-  {
-    id: 1,
-    customerName: "Alamgir",
-    contactNumber: "014578925",
-    email: "alamgir@gmail.com",
-    product: [
-      { id: 1, name: "PC", amount: 4004 },
-      { id: 2, name: "Laptop", amount: 544 },
-    ],
-  },
-  {
-    id: 2,
-    customerName: "Kabir",
-    contactNumber: "014578925",
-    email: "kabir@gmail.com",
-    product: [
-      { id: 1, name: "Mobile", amount: 644 },
-      { id: 2, name: "Wrist Watch", amount: 944 },
-    ],
-  },
-];
-const ProductList = () => {
-  const [myState, setMyState] = useState( data );
-  const [edit, setEdit] = useState( [] );
 
-  const handleDeleteRowData = ( id ) => {
-    const remainRowData = myState.filter( ( i ) => i.id !== id );
-    console.log( remainRowData );
-    setMyState( remainRowData );
+const ProductList = () => {
+  const [myState, setMyState] = useState(  );
+  const [edit, setEdit] = useState( [] );
+  const [tableData, setTableData] = useState([])
+  const fetchCustomerInfo =async () => { 
+    const res=await axios.get('http://localhost:5005/customerInfo');
+   setTableData(res.data)
+
+   }
+   useEffect(() => {
+     fetchCustomerInfo();
+   }, [])
+   
+  const handleDeleteRowData =async ( item ) => {
+    console.log(JSON.stringify(item,null,2))
+    try {
+      await axios.delete('http://localhost:5005/customerInfo',{params:{id:item.id}})
+alert("Data Deleted");
+    } catch (error) {
+      console.log(error)
+    }
+
+fetchCustomerInfo();
+
+    // const remainRowData = myState.filter( ( i ) => i.id !== id );
+    // setMyState( remainRowData );
   };
   const handleEditRowData = ( item ) => {
     setEdit( item );
@@ -47,6 +45,7 @@ const ProductList = () => {
           setMyState={setMyState}
           edit={edit}
           setEdit={setEdit}
+          fetchCustomerInfo={fetchCustomerInfo}
         />
       </div>
       <div className="mt-3">
@@ -63,19 +62,19 @@ const ProductList = () => {
             </tr>
           </thead>
           <tbody>
-            {myState?.map( ( item, index ) => (
-              <tr key={index + 1}>
-                <td>{index}</td>
+            {tableData?.map( ( item, index ) => (
+              <tr key={item.id}>
+                <td>{index+1}</td>
                 <td>{item.customerName}</td>
                 <td>{item.contactNumber}</td>
                 <td>{item.email}</td>
 
                 <td className="border-bottom-1" style={{ color: "green" }}>
-                  {item.product.map( ( p ) => (
+                  {item.product.map( ( p ,pId) => (
                     <tr key={p.id}>
-                      <td >{p.name}
-
-                      </td>
+                     <ul>                      
+                       <li>{p.name}</li>
+                     </ul>
                     </tr>
                   ) )}
                 </td>
@@ -100,7 +99,7 @@ const ProductList = () => {
                   </Button>
                   <Button
                     onClick={() => {
-                      handleDeleteRowData( item.id );
+                      handleDeleteRowData( item );
                     }}
                   >
                     Delete
