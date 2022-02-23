@@ -2,7 +2,6 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Edit, Trash2 } from "react-feather";
 import { Button, Card, Col, Input, Label, Row, Table } from "reactstrap";
-
 const initialState = {
   id: 0,
   customerName: "",
@@ -12,19 +11,23 @@ const initialState = {
 };
 
 const ProductAddForm = ( { myState, setMyState, edit, setEdit ,fetchCustomerInfo} ) => {
+  //State
   const [state, setState] = useState( initialState );
   const [tableData, setTableData] = useState( [] );
-  const [dataEdit, setDataEdit] = useState();
+
+  //#region Effects
   useEffect( () => {
     setState( { ...state, ...edit } )
 
   }, [edit] )
+
+  //#region Events
   const resetForm = () => {
     state.product.amount = 0;
     state.product.name = "";
   };
 
-  const handleAddProductToTable = () => {
+  const handleAddProductToTable = () => {    
     const updatedProduct = state.product.map( ( p ) => ( {
       id: Math.floor( Math.random() * 100 ),
       name: p.name,
@@ -63,20 +66,22 @@ const ProductAddForm = ( { myState, setMyState, edit, setEdit ,fetchCustomerInfo
     );
     setTableData( remainData );
   };
-  const handleDeleteData = ( id ) => {
-    const remainRowData = state.product.filter( ( i ) => i.id !== id );
+  const handleDeleteData =async (stId,itemId ) => {
+ 
+const res=await axios.delete('http://localhost:5005/customerInfo/product/'+itemId); 
+console.log(res)
+    // const remainRowData = state.product.filter( ( i ) => i.id !== id );
     /// setState( remainRowData );
   };
 
   const handleEditDataFromTable = ( item ) => {
-    // const updateProduct = (
-    //   {
-    //     customerName: state.customerName,
-    //     contactNumber: state.contactNumber,
-    //     email: state.email,
-
-    //   }
-    // )
+    const updateProduct =[
+      state.product.id=item.id,
+      state.product.name=item.name,
+      state.product.amount=item.amount
+    ]
+    setState({...state,updateProduct})
+   
   }
 
   const handleFinalSubmit =async ( id ) => {
@@ -210,7 +215,7 @@ fetchCustomerInfo();
                             </Button>
                             <Button
                               onClick={() => {
-                                handleDeleteData( item.id );
+                                handleDeleteData(item.id );
                               }}
                             >
                               <Trash2 />
@@ -219,21 +224,7 @@ fetchCustomerInfo();
                         </tr>
                       ) )
                     }
-                    {/* {state?.map( ( i, index ) => (
-                      <tr key={i.id}>
-                        <td>{i.name}</td>
-                        <td>{i.amount}</td>
-                        <td className="mr-5">
-                          <Button
-                            onClick={() => {
-                              handleDeleteDataFromTable( i.id );
-                            }}
-                          >
-                            -{" "}
-                          </Button>
-                        </td>
-                      </tr>
-                    ) )} */}
+                 
                   </tbody>
                 </Table>
               ) : (

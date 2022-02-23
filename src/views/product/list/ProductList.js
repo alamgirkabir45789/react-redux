@@ -16,10 +16,10 @@ const ProductList = () => {
      fetchCustomerInfo();
    }, [])
    
-  const handleDeleteRowData =async ( item ) => {
-    console.log(JSON.stringify(item,null,2))
+  const handleDeleteRowData =async ( id ) => {
     try {
-      await axios.delete('http://localhost:5005/customerInfo',{params:{id:item.id}})
+    const res=  await axios.delete('http://localhost:5005/customerInfo/'+id)
+    console.log(res)
 alert("Data Deleted");
     } catch (error) {
       console.log(error)
@@ -72,9 +72,9 @@ fetchCustomerInfo();
                 <td className="border-bottom-1" style={{ color: "green" }}>
                   {item.product.map( ( p ,pId) => (
                     <tr key={p.id}>
-                     <ul>                      
-                       <li>{p.name}</li>
-                     </ul>
+                                        
+                       <td>{p.name}</td>
+                    
                     </tr>
                   ) )}
                 </td>
@@ -99,7 +99,7 @@ fetchCustomerInfo();
                   </Button>
                   <Button
                     onClick={() => {
-                      handleDeleteRowData( item );
+                      handleDeleteRowData( item.id );
                     }}
                   >
                     Delete

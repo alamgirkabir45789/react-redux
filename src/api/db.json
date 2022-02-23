@@ -44,24 +44,6 @@
   ],
   "customerInfo": [
     {
-      "id": 25,
-      "customerName": "Ali Akbar",
-      "contactNumber": "015468932",
-      "email": "ali@@gmail.com",
-      "product": [
-        {
-          "id": 39,
-          "name": "Laptop",
-          "amount": "343"
-        },
-        {
-          "id": 71,
-          "name": "Mouse",
-          "amount": "55"
-        }
-      ]
-    },
-    {
       "id": 205,
       "customerName": " Akbar",
       "contactNumber": "015468932",
@@ -80,69 +62,43 @@
       ]
     },
     {
-      "id": 79,
-      "customerName": "sdfdsf",
-      "contactNumber": "sdfsdfdsf",
-      "email": "sdfsdfds",
+      "id": 60,
+      "customerName": "Shafik",
+      "contactNumber": "0124566",
+      "email": "shafik@gmail.com",
       "product": [
         {
-          "id": 13,
-          "name": "sdfsdf",
-          "amount": "3434"
+          "id": 10,
+          "name": "Mobile",
+          "amount": "2"
         },
         {
-          "id": 33,
-          "name": "sfdgfsfsf",
-          "amount": "54"
+          "id": 35,
+          "name": "Mouse",
+          "amount": "5"
+        },
+        {
+          "id": 3,
+          "name": "sdfdsfsdf",
+          "amount": "34"
         }
       ]
     },
     {
-      "id": 8,
-      "customerName": "fggfgfdg",
-      "contactNumber": "67657567",
-      "email": "ghjhgjhg",
+      "id": 36,
+      "customerName": "rtrtrt",
+      "contactNumber": "35345",
+      "email": "fgdgfg",
       "product": [
         {
-          "id": 61,
-          "name": "ghjghjghj",
-          "amount": "7567"
+          "id": 38,
+          "name": "fdgdfgfdg",
+          "amount": "545"
         },
         {
-          "id": 36,
-          "name": "jghkjhkjk",
-          "amount": "767"
-        }
-      ]
-    },
-    {
-      "id": 206,
-      "customerName": "gdgd",
-      "contactNumber": "dfdfdf",
-      "email": "fsdsd",
-      "product": [
-        {
-          "id": 30,
-          "name": "sdsd",
-          "amount": "4545"
-        },
-        {
-          "id": 24,
-          "name": "fgfg",
-          "amount": "7878"
-        }
-      ]
-    },
-    {
-      "id": 73,
-      "customerName": "fhghf",
-      "contactNumber": "765656",
-      "email": "hgjgj",
-      "product": [
-        {
-          "id": 36,
-          "name": "ghhg",
-          "amount": "7878"
+          "id": 90,
+          "name": "fdgdfgf",
+          "amount": "45"
         }
       ]
     }

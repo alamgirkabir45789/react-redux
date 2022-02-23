@@ -9,6 +9,7 @@ import Customer from "../views/customer/list/index";
 import Error from "../views/error/form/Error";
 import Home from "../views/home/form/Home";
 import Final from "../views/modal-final/Final";
+import OrderList from "../views/order/list/OrderList";
 import Product from "../views/product/list/index";
 import Test5 from "../views/test/Test5";
 const Router = () => {
@@ -30,6 +31,10 @@ const Router = () => {
         {
           path: "/product",
           element: <Product />,
+        },
+        {
+          path: "/order",
+          element: <OrderList />,
         },
         {
           path: "/final",

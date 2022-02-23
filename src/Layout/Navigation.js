@@ -39,6 +39,11 @@ const Navigation = () => {
             </Link>
           </li>
           <li>
+            <Link className="nav-link" to="/order">
+              Order
+            </Link>
+          </li>
+          <li>
             <Link className="nav-link" to="/product">
               Product
             </Link>
