@@ -62,43 +62,43 @@
       ]
     },
     {
-      "id": 60,
-      "customerName": "Shafik",
-      "contactNumber": "0124566",
-      "email": "shafik@gmail.com",
+      "id": 36,
+      "customerName": "Rafik",
+      "contactNumber": "35345",
+      "email": "rafik@gmail.com",
       "product": [
         {
-          "id": 10,
-          "name": "Mobile",
-          "amount": "2"
+          "id": 38,
+          "name": "PC",
+          "amount": "4"
         },
         {
-          "id": 35,
-          "name": "Mouse",
-          "amount": "5"
-        },
-        {
-          "id": 3,
-          "name": "sdfdsfsdf",
-          "amount": "34"
+          "id": 90,
+          "name": "Keybord",
+          "amount": "9"
         }
       ]
     },
     {
-      "id": 36,
-      "customerName": "rtrtrt",
-      "contactNumber": "35345",
-      "email": "fgdgfg",
+      "id": 39,
+      "customerName": "fdgfdg",
+      "contactNumber": "45435",
+      "email": "fgdfg",
       "product": [
         {
-          "id": 38,
-          "name": "fdgdfgfdg",
-          "amount": "545"
+          "id": 69,
+          "name": "dfgfdg",
+          "amount": "5656"
         },
         {
-          "id": 90,
-          "name": "fdgdfgf",
-          "amount": "45"
+          "id": 64,
+          "name": "dfgfdg",
+          "amount": "5656"
+        },
+        {
+          "id": 7,
+          "name": "dfgfdg",
+          "amount": "5656"
         }
       ]
     }

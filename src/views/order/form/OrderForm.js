@@ -42,27 +42,31 @@ const OrderForm = (props) => {
       m.amount = item.amount;
       return m;
     });
+
     setState({ ...state, product: data });
   };
-  console.log(tableData)
-  const addProduct = () => {
-   const prodId=state.product.map(m=>m.id);
-   console.log(prodId)
-    if (prodId) {
-      console.log("res1")
-      const payload = state.product.map((pd) => ({
-        id: pd.id,
-        name: pd.name,
-        amount: pd.amount,
-      }));
-      setTableData([...tableData, ...payload]);
-    } else {
 
+  const onAddProduct = () => {
+    if (editState) {
+      const oldEditState = { ...editState };
+      const product = state.product[0];
+      oldEditState.product.map((item) => {
+        if (item.id === product.id) {
+          item["name"] = product.name;
+          item["amount"] = product.amount;
+        }
+        return item;
+      });
+      console.log(JSON.stringify(oldEditState.product, null, 2));
+      setTableData(oldEditState.product);
+    } else {
       const payload = state.product.map((pd) => ({
         id: Math.floor(Math.random() * 100),
         name: pd.name,
         amount: pd.amount,
       }));
+      console.log(JSON.stringify(payload, null, 2));
+
       setTableData([...tableData, ...payload]);
     }
 
@@ -104,7 +108,10 @@ const OrderForm = (props) => {
         email: state.email,
         product: tableData,
       };
-      await axios.put("http://localhost:5005/customerInfo/"+state.id, payload);
+      await axios.put(
+        "http://localhost:5005/customerInfo/" + state.id,
+        payload
+      );
       alert("Data Updated");
       console.log(JSON.stringify(payload, null, 2));
     } else {
@@ -133,6 +140,7 @@ const OrderForm = (props) => {
               <div>
                 <Label for="customerName">Customer Name</Label>
                 <Input
+                  required
                   id="customerName"
                   name="customerName"
                   type="text"
@@ -143,9 +151,10 @@ const OrderForm = (props) => {
               <div>
                 <Label for="contactNumber">Contact No</Label>
                 <Input
+                  required
                   id="contactNumber"
                   name="contactNumber"
-                  type="text"
+                  type="number"
                   value={state.contactNumber}
                   onChange={handleInputChange}
                 />
@@ -184,7 +193,7 @@ const OrderForm = (props) => {
                 <div style={{ marginLeft: "5px", marginTop: "30px" }}>
                   <Button
                     type="button"
-                    onClick={addProduct}
+                    onClick={onAddProduct}
                     className="bg-info"
                   >
                     +

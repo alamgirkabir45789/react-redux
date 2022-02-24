@@ -28,6 +28,10 @@ const OrderList = () => {
     alert("Deleted");
     fetchOrderInfo();
   };
+
+  const handlePrint = () => {
+    console.log("print");
+  };
   return (
     <Fragment>
       <Card className="p-3">
@@ -84,11 +88,19 @@ const OrderList = () => {
                     Edit
                   </Button>
                   <Button
+                    style={{ marginLeft: "5px" }}
                     className="bg-danger"
                     type="button"
                     onClick={() => handleDelete(oi.id)}
                   >
                     Delete
+                  </Button>
+                  <Button
+                    type="button"
+                    style={{ marginLeft: "15px" }}
+                    onClick={handlePrint}
+                  >
+                    Print
                   </Button>
                 </td>
               </tr>
