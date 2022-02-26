@@ -16,6 +16,24 @@
       "age": "34"
     }
   ],
+  "product":[
+{
+  "id":1,
+  "productName": "Laptop",
+  "productCategory": "Electronics",
+  "productPrice": 5000,
+  "productImage": "https://www.gigabyte.com/FileUpload/Global/MainPage/4/innergigabyte/images/product/AORUS-VE.png",
+  "productStatus": true
+},
+{
+  "id":2,
+  "productName": "Laptop",
+  "productCategory": "Electronics",
+  "productPrice": 5000,
+  "productImage": "https://www.gigabyte.com/FileUpload/Global/MainPage/4/innergigabyte/images/product/AORUS-VE.png",
+  "productStatus": true
+}
+  ],
   "customer": [
     {
       "id": 1,
@@ -80,25 +98,20 @@
       ]
     },
     {
-      "id": 39,
-      "customerName": "fdgfdg",
-      "contactNumber": "45435",
-      "email": "fgdfg",
+      "id": 61,
+      "customerName": "dfgdgdfg",
+      "contactNumber": "435453",
+      "email": "dghfghgh",
       "product": [
         {
-          "id": 69,
-          "name": "dfgfdg",
-          "amount": "5656"
+          "id": 42,
+          "name": "fdgfdg",
+          "amount": "05445"
         },
         {
-          "id": 64,
-          "name": "dfgfdg",
-          "amount": "5656"
-        },
-        {
-          "id": 7,
-          "name": "dfgfdg",
-          "amount": "5656"
+          "id": 10,
+          "name": "hgfhghg",
+          "amount": "4545"
         }
       ]
     }

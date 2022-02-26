@@ -1,8 +1,10 @@
+import { PDFViewer } from "@react-pdf/renderer";
 import axios from "axios";
 import React, { Fragment, useEffect, useState } from "react";
 import { Button, Card, Table } from "reactstrap";
 import { baseAxios } from "../../../services/api-end-points";
 import OrderForm from "../form/OrderForm";
+import ViewOrder from "./ViewOrder";
 
 const OrderList = () => {
   //#region States
@@ -34,6 +36,9 @@ const OrderList = () => {
   };
   return (
     <Fragment>
+      <PDFViewer width="100%" height="1000px">
+        <ViewOrder data={orderInfo} />
+      </PDFViewer>
       <Card className="p-3">
         <OrderForm fetchOrderInfo={fetchOrderInfo} editState={editState} />
       </Card>
