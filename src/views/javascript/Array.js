@@ -51,3 +51,49 @@ console.log(arr)
 console.log("----")
 }
 console.log(numbers.forEach(myFunc))
+
+//map
+const mapArr=numbers.map(item=>item*5+5);
+console.log(mapArr)
+
+//filter
+const filteredArr=numbers.filter(item=>item>30);
+console.log(filteredArr)
+//reduce
+const reduceValue=numbers.reduce((total,value,index,arr)=>{
+    console.log(total)
+    console.log("-----'")
+    console.log(index)
+    console.log("-----'")
+    console.log(arr)
+    console.log("-----'")
+
+    return total+value;
+},0)
+console.log(reduceValue)
+
+//every
+const num=numbers.every(num=>num>20);
+console.log(num)
+//some
+const sum=numbers.some(num=>num>20);
+console.log(sum)
+
+//indexOF
+const index=numbers.indexOf(33);
+console.log(index)
+//includes
+const includeData=numbers.includes(333);
+console.log(includeData)
+
+//find
+const findNum=numbers.find(item=>item>35);
+console.log(findNum)
+
+const name="ALAMGIR";
+console.log(Array.from(name))
+const keys=numbers.keys();
+console.log(keys)
+for(let a of keys){
+    console.log(a)
+}

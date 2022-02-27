@@ -46,50 +46,96 @@ const initialState = {
   productCategory: "",
   productPrice: "",
   productImage: "",
-  productStatus: true,
+  fileName:"",
+  URL:"",
+  productStatus: false,
 };
 const Home = () => {
   //#region States
-  const [state, setstate] = useState(initialState);
+  const [state, setState] = useState(initialState);
   const [product, setProduct] = useState([]);
-  const [productCategory, setProductCategory] = useState()
+  const [productCategory, setProductCategory] = useState(null);
   const [selectedImage, setSelectedImage] = useState();
-
+  //#region UDS
+  const resetState = () => {
+    (state.productName = ""), (state.productPrice = "");
+  };
   //#region Effect
   const getProduct = async () => {
     const res = await axios.get("http://localhost:5005/product");
     setProduct(res.data);
   };
+
   useEffect(() => {
     getProduct();
   }, []);
 
   //#region Events
   const handleInputChange = (e) => {
-    const { name, value } = e.target;
+    const { name, value, type, checked } = e.target;
     const prev = { ...state };
-    prev[name] = value;
-    console.log(prev);
-    setstate(prev);
+    prev[name] =
+      type === "number" ? Number(value) : type === "checkbox" ? checked : value;
+      setState(prev);
   };
-
-  const handleProductCategoryChange = (e) => { 
-console.log(e)
-   }
+  const handleFormSubmit = async (e) => {
+    e.preventDefault();
+    const payload = {
+      productName: state.productName,
+      productCategory: productCategory.value,
+      productPrice: state.productPrice,
+      productImage: state.productImage,
+      productStatus: state.productStatus
+    };
+    await axios.post("http://localhost:5005/product", payload);
+    alert("Inserted!!!");
+    setProductCategory(productCategory);
+    setSelectedImage(selectedImage);
+    console.log(JSON.stringify(payload, null, 2));
+    resetState();
+    getProduct();
+  };
+  const handleProductCategoryChange = (data) => {
+    setProductCategory(data);
+  };
   const onImageChange = (e) => {
-    const { name, value } = e.target;
+  
     if (e.target.files && e.target.files.length > 0) {
-      const prev = { ...state };
-      prev[name] = value;
-      console.log(prev)
-      setstate(prev);
-      setSelectedImage(e.target.files[0]);
+ const file = e.target.files[0];
+     const fileURL=URL.createObjectURL(file);
+    // const fileName = file.name;
+    setState({...state,productImage:fileURL});
+      setSelectedImage(file);
+       setSelectedImage(fileURL);
+      //  setSelectedImage(e.target.files[0]);
     }
-   
   };
 
   const removeSelectedImage = () => {
     setSelectedImage();
+  };
+
+  const handleEditProduct = (item) => { 
+    console.log(item)
+    const selectedProductCategory=productCategoryDropdown.find(pd=>pd.value===item.productCategory)
+    const updatedImage=item.productImage
+    console.log(updatedImage)
+    const data={
+      id:item.id,
+      productName:item.productName,
+      productPrice:item.productPrice,
+      productStatus:item.productStatus,
+      productImage:item.productImage
+    }
+    setState(data);
+    setProductCategory(selectedProductCategory)
+    
+   }
+
+  const handleDeleteProduct = async (id) => {
+    await axios.delete("http://localhost:5005/product/" + id);
+    alert("Deleted!!");
+    getProduct();
   };
   return (
     <Fragment>
@@ -100,7 +146,7 @@ console.log(e)
       <div className="p-3">
         <Row>
           <Col lg={6} sm={6} xs={6} xl={6}>
-            <Form>
+            <Form onSubmit={handleFormSubmit}>
               <FormGroup>
                 <Label for="productName">Product Name</Label>
                 <Input
@@ -158,7 +204,8 @@ console.log(e)
                   <img
                     height="300px"
                     width="300px"
-                    src={URL.createObjectURL(selectedImage)}
+                    src={selectedImage}
+                    //  src={URL.createObjectURL(selectedImage)}
                     alt="No Image"
                   />
                   <button
@@ -181,7 +228,7 @@ console.log(e)
                     height: "300px",
                     textAlign: "center",
                     padding: "10px",
-                    border: "3px solid green",
+                    border: "3px solid silver",
                   }}
                 >
                   <img
@@ -198,6 +245,7 @@ console.log(e)
                   id="productStatus"
                   name="productStatus"
                   value={state.productStatus}
+                  checked={state.productStatus}
                   onChange={handleInputChange}
                 />
                 <Label for="productStatus" style={{ marginLeft: "10px" }}>
@@ -222,12 +270,13 @@ console.log(e)
                 </tr>
               </thead>
               <tbody>
+               
                 {product.map((item) => (
                   <tr key={item.id}>
                     <td>{item.productName}</td>
                     <td>{item.productCategory}</td>
                     <td>{item.productPrice}</td>
-                    <td>{item.productStatus}</td>
+                    <td>{item.productStatus ? "In Stock" : "Out of Stock"}</td>
                     <td>
                       <img
                         height="50px"
@@ -237,10 +286,14 @@ console.log(e)
                       />
                     </td>
                     <td>
-                      <Button type="button" className="bg-primary">
+                      <Button type="button" className="bg-primary" onClick={()=>handleEditProduct(item)} >
                         Edit
                       </Button>
-                      <Button type="button" className="bg-danger">
+                      <Button
+                        onClick={() => handleDeleteProduct(item.id)}
+                        type="button"
+                        className="bg-danger"
+                      >
                         Delete
                       </Button>
                     </td>

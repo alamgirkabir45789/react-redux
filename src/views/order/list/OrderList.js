@@ -1,4 +1,4 @@
-import { PDFViewer } from "@react-pdf/renderer";
+import { PDFDownloadLink, PDFViewer } from "@react-pdf/renderer";
 import axios from "axios";
 import React, { Fragment, useEffect, useState } from "react";
 import { Button, Card, Table } from "reactstrap";
@@ -36,9 +36,10 @@ const OrderList = () => {
   };
   return (
     <Fragment>
-      <PDFViewer width="100%" height="1000px">
+      {/* <PDFViewer width="100%" height="1000px">
         <ViewOrder data={orderInfo} />
-      </PDFViewer>
+      </PDFViewer> */}
+ 
       <Card className="p-3">
         <OrderForm fetchOrderInfo={fetchOrderInfo} editState={editState} />
       </Card>
