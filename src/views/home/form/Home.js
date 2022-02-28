@@ -46,8 +46,8 @@ const initialState = {
   productCategory: "",
   productPrice: "",
   productImage: "",
-  fileName:"",
-  URL:"",
+  fileName: "",
+  URL: "",
   productStatus: false,
 };
 const Home = () => {
@@ -67,8 +67,10 @@ const Home = () => {
   };
 
   useEffect(() => {
+    console.log("render");
     getProduct();
-  }, []);
+    setSelectedImage(selectedImage);
+  }, [selectedImage]);
 
   //#region Events
   const handleInputChange = (e) => {
@@ -76,19 +78,26 @@ const Home = () => {
     const prev = { ...state };
     prev[name] =
       type === "number" ? Number(value) : type === "checkbox" ? checked : value;
-      setState(prev);
+    setState(prev);
   };
   const handleFormSubmit = async (e) => {
     e.preventDefault();
+
     const payload = {
       productName: state.productName,
       productCategory: productCategory.value,
       productPrice: state.productPrice,
       productImage: state.productImage,
-      productStatus: state.productStatus
+      productStatus: state.productStatus,
     };
-    await axios.post("http://localhost:5005/product", payload);
-    alert("Inserted!!!");
+    if (state.id > 0) {
+      await axios.put("http://localhost:5005/product/"+ state.id,payload);
+      alert("Updated!!!");
+    } else {
+      await axios.post("http://localhost:5005/product", payload);
+      alert("Inserted!!!");
+    }
+
     setProductCategory(productCategory);
     setSelectedImage(selectedImage);
     console.log(JSON.stringify(payload, null, 2));
@@ -99,14 +108,18 @@ const Home = () => {
     setProductCategory(data);
   };
   const onImageChange = (e) => {
-  
     if (e.target.files && e.target.files.length > 0) {
- const file = e.target.files[0];
-     const fileURL=URL.createObjectURL(file);
-    // const fileName = file.name;
-    setState({...state,productImage:fileURL});
+      const file = e.target.files[0];
+      const fileURL = URL.createObjectURL(file);
+      // const fileName = file.name;
+
+      let reader=new FileReader();
+      reader.readAsDataURL(file);
+      console.log(reader.onload(e.target.result))
+
+      setState({ ...state, productImage: fileURL });
       setSelectedImage(file);
-       setSelectedImage(fileURL);
+      setSelectedImage(fileURL);
       //  setSelectedImage(e.target.files[0]);
     }
   };
@@ -115,22 +128,24 @@ const Home = () => {
     setSelectedImage();
   };
 
-  const handleEditProduct = (item) => { 
-    console.log(item)
-    const selectedProductCategory=productCategoryDropdown.find(pd=>pd.value===item.productCategory)
-    const updatedImage=item.productImage
-    console.log(updatedImage)
-    const data={
-      id:item.id,
-      productName:item.productName,
-      productPrice:item.productPrice,
-      productStatus:item.productStatus,
-      productImage:item.productImage
-    }
+  const handleEditProduct = (item) => {
+    console.log(item);
+    const selectedProductCategory = productCategoryDropdown.find(
+      (pd) => pd.value === item.productCategory
+    );
+    const updatedImage = item.productImage;
+    console.log(updatedImage);
+    const data = {
+      id: item.id,
+      productName: item.productName,
+      productPrice: item.productPrice,
+      productStatus: item.productStatus,
+      productImage: item.productImage,
+    };
     setState(data);
-    setProductCategory(selectedProductCategory)
-    
-   }
+    setProductCategory(selectedProductCategory);
+    setSelectedImage(updatedImage);
+  };
 
   const handleDeleteProduct = async (id) => {
     await axios.delete("http://localhost:5005/product/" + id);
@@ -205,7 +220,7 @@ const Home = () => {
                     height="300px"
                     width="300px"
                     src={selectedImage}
-                    //  src={URL.createObjectURL(selectedImage)}
+                    //src={URL.createObjectURL(selectedImage)}
                     alt="No Image"
                   />
                   <button
@@ -270,7 +285,6 @@ const Home = () => {
                 </tr>
               </thead>
               <tbody>
-               
                 {product.map((item) => (
                   <tr key={item.id}>
                     <td>{item.productName}</td>
@@ -286,7 +300,11 @@ const Home = () => {
                       />
                     </td>
                     <td>
-                      <Button type="button" className="bg-primary" onClick={()=>handleEditProduct(item)} >
+                      <Button
+                        type="button"
+                        className="bg-primary"
+                        onClick={() => handleEditProduct(item)}
+                      >
                         Edit
                       </Button>
                       <Button

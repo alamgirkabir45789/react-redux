@@ -18,14 +18,6 @@
   ],
   "product": [
     {
-      "id": 1,
-      "productName": "Laptop",
-      "productCategory": "Electronics",
-      "productPrice": 5000,
-      "productImage": "https://www.gigabyte.com/FileUpload/Global/MainPage/4/innergigabyte/images/product/AORUS-VE.png",
-      "productStatus": true
-    },
-    {
       "id": 2,
       "productName": "Laptop",
       "productCategory": "Electronics",
@@ -34,26 +26,18 @@
       "productStatus": false
     },
     {
-      "productName": "fgfdgfg",
-      "productCategory": "Accessories",
-      "productPrice": 45544,
-      "productImage": "blob:http://localhost:3000/8b6596e2-1e2d-487a-894c-53db32754e12",
-      "productStatus": true,
+      "productName": "Laptop",
+      "productCategory": "Electronics",
+      "productPrice": 5000,
+      "productImage": "https://www.gigabyte.com/FileUpload/Global/MainPage/4/innergigabyte/images/product/AORUS-VE.png",
+      "productStatus": false,
       "id": 3
     },
     {
-      "productName": "jhgjgj",
-      "productCategory": "Garments",
-      "productPrice": 8987,
-      "productImage": "blob:http://localhost:3000/fa93b34b-3037-4a57-ae9a-6fa25478d8a1",
-      "productStatus": true,
-      "id": 4
-    },
-    {
-      "productName": "jhgjgj",
-      "productCategory": "Garments",
-      "productPrice": 8987,
-      "productImage": "blob:http://localhost:3000/b2d444b8-e73b-448c-954f-82d406dfe5bd",
+      "productName": "Laptop",
+      "productCategory": "Electronics",
+      "productPrice": 5000,
+      "productImage": "blob:http://localhost:3000/aedd39f7-b27e-473c-8add-3547427b455b",
       "productStatus": false,
       "id": 5
     }
