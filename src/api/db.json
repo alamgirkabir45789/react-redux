@@ -18,12 +18,12 @@
   ],
   "product": [
     {
-      "id": 2,
-      "productName": "Laptop",
+      "productName": "Laptopdsfdsfdsf",
       "productCategory": "Electronics",
       "productPrice": 5000,
       "productImage": "https://www.gigabyte.com/FileUpload/Global/MainPage/4/innergigabyte/images/product/AORUS-VE.png",
-      "productStatus": false
+      "productStatus": false,
+      "id": 2
     },
     {
       "productName": "Laptop",
@@ -37,35 +37,77 @@
       "productName": "Laptop",
       "productCategory": "Electronics",
       "productPrice": 5000,
-      "productImage": "blob:http://localhost:3000/aedd39f7-b27e-473c-8add-3547427b455b",
+      "productImage": "blob:http://localhost:3000/474a2bfa-3c7f-4099-8995-1d2cd5e731d0",
       "productStatus": false,
       "id": 5
     }
   ],
   "customer": [
     {
-      "id": 1,
-      "name": "Ali Hossain",
-      "email": "ali@gmail.com",
-      "phone": "355454",
-      "address": "sdfdf",
-      "message": "Hello Ali"
+      "name": "sdfdsf",
+      "email": "fddsfds",
+      "phone": "erwer",
+      "address": "sdfsdf",
+      "product": [
+        {
+          "id": 73,
+          "productName": "dsfsdf",
+          "amount": "340",
+          "cost": "04343"
+        },
+        {
+          "id": 37,
+          "productName": "fhfgh",
+          "amount": "340",
+          "cost": "04343"
+        }
+      ],
+      "message": "gfhgfh",
+      "id": 5
     },
     {
-      "id": 2,
-      "name": "Foysal",
-      "email": "ali@gmail.com",
-      "phone": "355454",
-      "address": "dfdf",
-      "message": "Instructor"
+      "name": "Sadik",
+      "email": "sadik@gmail.com",
+      "phone": "5454",
+      "address": "kjkjk",
+      "product": [
+        {
+          "id": 52,
+          "productName": "PC",
+          "amount": "43",
+          "cost": "454"
+        },
+        {
+          "id": 70,
+          "productName": "Laptop",
+          "amount": "43",
+          "cost": "454"
+        }
+      ],
+      "message": "gfdgfg",
+      "id": 7
     },
     {
-      "name": "Akbal",
-      "email": "akbal@gmail.com",
-      "phone": "54564654654",
-      "address": "Noakhali",
-      "message": "Noakhalia\n",
-      "id": 3
+      "name": "fghf",
+      "email": "gfhg",
+      "phone": "566",
+      "address": "gfhf",
+      "product": [
+        {
+          "id": 86,
+          "productName": "sdfd",
+          "amount": "dsfdsf",
+          "cost": "dfdsfs"
+        },
+        {
+          "id": 72,
+          "productName": "sdfd",
+          "amount": "dsfdsf",
+          "cost": "dfdsfs"
+        }
+      ],
+      "message": "fghgfh",
+      "id": 8
     }
   ],
   "customerInfo": [
@@ -120,6 +162,24 @@
           "id": 10,
           "name": "hgfhghg",
           "amount": "4545"
+        }
+      ]
+    },
+    {
+      "id": 51,
+      "customerName": "sfdsdf",
+      "contactNumber": "34234",
+      "email": "dfgdfg",
+      "product": [
+        {
+          "id": 32,
+          "name": "fgdfg",
+          "amount": "0434"
+        },
+        {
+          "id": 98,
+          "name": "hfghgfh",
+          "amount": "45"
         }
       ]
     }

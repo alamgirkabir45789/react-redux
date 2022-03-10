@@ -91,7 +91,7 @@ const Home = () => {
       productStatus: state.productStatus,
     };
     if (state.id > 0) {
-      await axios.put("http://localhost:5005/product/"+ state.id,payload);
+      await axios.put("http://localhost:5005/product/" + state.id, payload);
       alert("Updated!!!");
     } else {
       await axios.post("http://localhost:5005/product", payload);
@@ -112,10 +112,6 @@ const Home = () => {
       const file = e.target.files[0];
       const fileURL = URL.createObjectURL(file);
       // const fileName = file.name;
-
-      let reader=new FileReader();
-      reader.readAsDataURL(file);
-      console.log(reader.onload(e.target.result))
 
       setState({ ...state, productImage: fileURL });
       setSelectedImage(file);
