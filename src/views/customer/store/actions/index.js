@@ -32,6 +32,7 @@ export const getCustomerById = (id) => {
 };
 
 export const bindCustomerInitialState = (selectedData) => {
+  console.log(selectedData);
   if (selectedData) {
     return (dispatch) => {
       dispatch({
@@ -75,9 +76,11 @@ export const updateCustomer = (id, customer) => {
           type: UPDATE_CUSTOMER,
           customer,
         });
-      }).then(()=>{
-          dispatch(getAllCustomer());
-      }).catch((err)=>console.log(err));
+      })
+      .then(() => {
+        dispatch(getAllCustomer());
+      })
+      .catch((err) => console.log(err));
   };
 };
 

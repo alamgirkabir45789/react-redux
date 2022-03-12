@@ -10,11 +10,11 @@ import {
 const CustomerAddhtmlForm = () => {
   const dispatch = useDispatch();
   const { selectedCustomer } = useSelector(({ customers }) => customers);
+  console.log(selectedCustomer.product);
   const [product, setProduct] = useState("");
   const [amount, setAmount] = useState(0);
   const [cost, setCost] = useState(0);
   const [productArray, setProductArray] = useState([]);
-
   const handleSubmit = (e) => {
     e.preventDefault();
     if (selectedCustomer.id !== 0) {
@@ -52,14 +52,6 @@ const CustomerAddhtmlForm = () => {
     prevState[name] = value;
     dispatch(bindCustomerInitialState(prevState));
   };
-
-  //   useEffect(() => {
-  //     if (selectedCustomer.product.length > 0) {
-  //       const productInfo = selectedCustomer.product.map((item) => item);
-  //       console.log(productInfo);
-  //       setProductArray([...productArray, ...productInfo]);
-  //     }
-  //   }, [selectedCustomer.product.length]);
 
   const handleAddProduct = () => {
     const data = {
