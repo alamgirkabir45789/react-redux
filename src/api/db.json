@@ -163,7 +163,7 @@
   "customerInfo": [
     {
       "id": 205,
-      "customerName": " Akbar",
+      "customerName": " Akbarhjhjh",
       "contactNumber": "015468932",
       "email": "ali@@gmail.com",
       "product": [
@@ -212,24 +212,6 @@
           "id": 10,
           "name": "hgfhghg",
           "amount": "4545"
-        }
-      ]
-    },
-    {
-      "id": 51,
-      "customerName": "sfdsdf",
-      "contactNumber": "34234",
-      "email": "dfgdfg",
-      "product": [
-        {
-          "id": 32,
-          "name": "fgdfg",
-          "amount": "0434"
-        },
-        {
-          "id": 98,
-          "name": "hfghgfh",
-          "amount": "45"
         }
       ]
     }
